@@ -1,0 +1,88 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imgs {
+    height: 120px;
+    width: 250px;
+}
+
+.cardItem {
+    display:flex;
+    flex-direction: column;
+    background: linear-gradient(180deg,#648de1, #ffffff);
+    align-items: center;
+    margin-left:auto;
+    margin-right: auto;
+    width: 250px;
+    height: 360px;
+    row-gap: em;
+    border-radius: 8px;
+    margin-bottom: 2em;
+    box-shadow: 2px 2px 8px 1px dimgrey;
+    padding-top: 0.5em;
+}
+
+.card-Descrip {
+    display: flex;
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: 'Karla';
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    margin-top: 0.8em;
+    padding: 0 3px;
+}
+
+.learn-btn {
+    background: linear-gradient(180deg,#4070d2, #c5cfe4);
+    color: rgb(5, 3, 3);
+    font-family:'Montserrat';
+    font-weight: 600;
+    text-shadow: 0px 1px 3px white;
+    justify-content: center;
+    box-shadow: 2px 2px 0px 0px black;
+    border-radius: 0.7em;
+    height: 2em;
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+}
+
+.learn-btn:hover {
+    background: linear-gradient(180deg,#0c317a, #4070d2);
+    box-shadow: none;
+    text-shadow: none;
+    color: white;
+}
+
+.notif {
+    display: flex;
+    justify-content: center;
+    color: #0ea849f2;
+        animation-name: change-size;
+        animation-duration: 1s;
+        animation-iteration-count: 2;
+}
+
+@keyframes change-size {
+        0% {font-size: 14px}
+        50% {font-size: 16px}
+        100% {font-size: 14px}
+}
+
+@media screen and (min-width: 733px) {
+    .card-container {
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 0.1em;
+    }
+        
+}
+  
