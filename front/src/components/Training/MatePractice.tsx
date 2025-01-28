@@ -50,7 +50,7 @@ const MatePractice = () => {
       return false;
     }
 
-    // Verificar si hemos completado todos los movimientos correctos
+    // Verificar si se completaron todos los movimientos correctamente
     if (currentSolutionIndex + 1 === problems[currentMove].moves) {
       setIsExploding(true);
       // Si la respuesta es correcta, cambiar al siguiente problema
@@ -68,7 +68,6 @@ const MatePractice = () => {
     setCurrentMove((prevMove) => (prevMove + 1) % problems.length); // Cicla entre problemas
     chess.reset(); // Resetear el tablero
   };
-
 
   return (
     <div className="mate-practice">
