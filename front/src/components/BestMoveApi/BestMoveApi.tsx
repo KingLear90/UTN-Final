@@ -14,8 +14,9 @@ function BestMoveApi() {
   const [mate, setMate] = useState<string>();
   const [winChance, setWinChance] = useState<number | undefined>();
   const [interpretation, setInterpretation] = useState(false);
+  const CHESS_API_URL = 'https://chess-api.com/v1'
 
-  // Los eventos en React con Typescript, no pueden ser, por ejempplo, de tipo string, 
+  // Los eventos de cambio en React con Typescript no pueden ser, por ejemplo, de tipo string.
   // sino un objeto de tipo React.ChangeEvent<ELEMENTO QUE SE USE>.
   const handleFenChange = (event: React.ChangeEvent<HTMLInputElement>) => {   
     const newFEN = event.target.value;   // Se actualiza el estado del FEN con el valor ingresado por el usuario.
@@ -28,7 +29,7 @@ function BestMoveApi() {
     setLoading(true);             // Avisa al usuario que se está procesando la solicitud.
 
     try {   {/* Esta sería la solicitud POST a la API (se puede chusmear en chess-api.com) con el FEN ingresado por el usuario */}
-        const response = await fetch('https://chess-api.com/v1', {
+        const response = await fetch(CHESS_API_URL, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -37,6 +38,10 @@ function BestMoveApi() {
         });
 
         const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error('API error: ${response.status} ${response.statusText}');
+        }
 
         let result = data.text;
         if (result.includes(")")) {
