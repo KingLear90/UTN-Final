@@ -2,9 +2,7 @@ import { verifyToken } from "../utils/verifyToken.js";
 
 export const verifyTokenMiddleware = (req, res, next) => {
     try {
-        // (Alternativa token backend): leer el token de la session del backend.
-        //const token = req.session.token;    // Si hay token, lo guarda en esta variable.
-
+        // Verifica si el token está en el header de autorización de la petición.
         const authHeader = req.headers.authorization?.split(" ")[1];
         
         if (!authHeader) {
