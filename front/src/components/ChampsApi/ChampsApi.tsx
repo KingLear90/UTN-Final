@@ -2,7 +2,6 @@ import './Gallery.css';
 import { useState, useEffect } from 'react';
 import { Champion } from '../../types/interfaces';
 
-
 function ChampsApi () {
     const [champions, setChammpions] = useState<Champion[]>([]); // Almacenará en un array la información devuelta por la API.
     const [showChampions, setShowChampions] = useState(false);  // Controlará si se muestra o no la info devuelta por la API.
@@ -12,7 +11,6 @@ function ChampsApi () {
     const [endingIndex, setEndingIndex] = useState(3);  // Índice final para mostrar los campeones.
     const championsArr = champions.slice(startingIndex, endingIndex);  // Array con los campeones a mostrar.
     
-
     useEffect(() => {   // Conexión con la API
         const fetchData = async () => {
             try {
