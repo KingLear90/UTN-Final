@@ -83,3 +83,8 @@ export interface SignUpForm {
   email: string;
   password: string;
 }
+
+export interface FormData {
+  email: string;
+  password: string;
+}

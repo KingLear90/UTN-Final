@@ -3,11 +3,7 @@ import App from '../../App';
 import { useState , useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
-
-interface FormData {
-  email: string;
-  password: string;
-}
+import { FormData } from '../../types/interfaces';
 
 function SignIn() {
   const [sesion, setSesion] = useState(false)

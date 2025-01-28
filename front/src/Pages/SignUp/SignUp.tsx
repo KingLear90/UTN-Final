@@ -6,7 +6,6 @@ import Button from '@mui/material/Button';
 import { useForm } from 'react-hook-form'
 import { SignUpForm } from '../../types/interfaces';
 
-
 function SignUp() {
   const navigate = useNavigate();
   const [registrationSuccess, setRegistrationSuccess] = useState(false)
