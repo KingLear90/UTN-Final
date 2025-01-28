@@ -23,4 +23,34 @@ export const problems = [
       side: 'b',
       moves: 1,
     },
+    {
+      fen: '3r4/R7/2p5/p1P2p2/1p4k1/nP2K3/P3NP2/8 b - - 4 41',
+      solution: ['a3c2'], 
+      side: 'b',
+      moves: 1,
+    },
+    {
+      fen: 'r2r2k1/2q1bpp1/3p3p/1ppn4/1P1BP3/P5Q1/4RPPP/R5K1 w - - 0 21',
+      solution: ['g3g7'],
+      side: 'w',
+      moves: 1,
+    },
+    {
+      fen: '2q3k1/4br2/6pQ/1p1n2p1/7P/1P4P1/1B2PP2/6K1 w - - 0 28',
+      solution: ['h6h8'],
+      side: 'w',
+      moves: 1,
+    },
+    {
+      fen: '8/3B2pp/p5k1/6P1/1ppp1K2/8/1P6/8 w - - 0 39',
+      solution: ['d7e8'],
+      side: 'w',
+      moves: 1,
+    },
+    {
+      fen: 'r3k2r/pb1p1ppp/1b4q1/1Q2P3/8/2NP1PP1/PP4P1/R1B2R1K b kq - 0 17',
+      solution: ['g6h5'],
+      side: 'b',
+      moves: 1,
+    }
   ];
