@@ -55,7 +55,6 @@ function Products() {
     }
 
     const token = localStorage.getItem('token')
-    console.log('Token being sent:', token);
     if (!token) {
       console.error('No token found')
       return
