@@ -139,9 +139,6 @@ export const validateUser = async (req, res) => {
       }
       const token = jwt.sign(payload, SECRET, { expiresIn: "30m" }); // Token firmado para que sea único y seguro.
       const profile = userFound.profile;
-      
-      // (Alternativa backend): Genera una session en el backend para manejar el token. 
-      // req.session.token = token  // Se guarda el token en la sesión.
 
       return res.status(200).json({message: "Logged in", token, profile: profile }); // La respuesta se envía al cliente (al front).
     } else {
