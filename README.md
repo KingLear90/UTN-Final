@@ -7,7 +7,7 @@ El siguiente trabajo está basado en una <b>API Rest</b> desarrollada como parte
 
 La aplicación realiza actividades CRUD (create, read, update, delete) sobre usuarios (users), productos (products) y categorías (categories) a partir de sus respectivos endpoints.<br>
 
-El proyecto realiza de manera completa el CRUD en el backend, y por el momento realiza sólo algunas acciones desde el frontend (ver y eliminar usuarios, y ver, editar y eliminar productos).
+El proyecto realiza de manera completa el CRUD en el backend, y por el momento realiza sólo algunas acciones desde el frontend (crear (y loguear), ver y eliminar usuarios; y ver, editar y eliminar productos).
 
 <h3>Tecnologías implementadas</h3>
 
