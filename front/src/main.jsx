@@ -11,7 +11,7 @@ import SignUp from './Pages/SignUp/SignUp';
 import SignIn from './Pages/SignIn/SignIn';
 import Products from './Pages/Products/Products';
 import Practice from './Pages/Practice/Practice';
-import { GetUsers } from './components';
+import { GetUsers, ProtectedRoute } from './components';
 
 export const router = createBrowserRouter([
   {
@@ -56,7 +56,10 @@ export const router = createBrowserRouter([
   },
   {
     path: '/users',
-    element: <GetUsers />
+    element: (
+    <ProtectedRoute allowedProfiles={['admin']}>
+      <GetUsers />
+    </ProtectedRoute>)
   }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
