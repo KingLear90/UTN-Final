@@ -32,15 +32,17 @@ const ChessboardInterface: React.FC<ChessboardProps> = ({ fen, onDrop, boardOrie
           onSquareClick={onSquareClick}
           boardWidth={370}  
           customBoardStyle={{
-            border: '2px solid #000',
-            display: 'flex', 
-            flexDirection: 'column', 
-            justifyContent: 'center', 
-            marginLeft: 'auto',
-            marginRight: 'auto',
-          }}
-          customDarkSquareStyle={{ backgroundColor: '#f78214' }}
-          customLightSquareStyle={{ backgroundColor: '#eefabb' }}
+              display: "flex",
+              justifyContent: "center",
+              marginLeft: "auto",
+              marginRight: "auto",
+              borderRadius: "4px",
+              boxShadow: "0 2px 10px rgba(0, 0, 0, 0.5)"
+            }} customDarkSquareStyle={{
+              backgroundColor: "#15948e"
+            }} customLightSquareStyle={{
+              backgroundColor: "#edeed1"
+            }} 
           boardOrientation={boardOrientation}
         />
       </div>

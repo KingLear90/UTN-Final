@@ -74,7 +74,11 @@ const MatePractice = () => {
       <h1>Ejercicios de Jaque Mate</h1>
       <h6>Mejora tu cálculo y visión resolviendo problemas</h6>
       <div id='chessboard-container'>
-        <ChessboardInterface fen={fen} onDrop={onDrop} boardOrientation={problems[currentMove].side === 'w' ? 'white' : 'black'} />
+        <ChessboardInterface 
+          fen={fen} 
+          onDrop={onDrop} 
+          boardOrientation={problems[currentMove].side === 'w' ? 'white' : 'black'}
+          />
       </div>
         {isExploding && <ConfettiExplosion 
         particleCount={130} 
