@@ -8,71 +8,80 @@ const MatePractice = () => {
   
   const [chess] = useState(new Chess());
   const [fen, setFen] = useState<string>(chess.fen()); // FEN inicial del primer problema
-  const [currentSolutionIndex, setCurrentSolutionIndex] = useState(0);
   const [currentMove, setCurrentMove] = useState(0); // Mueve el marcador en el problema
+  const [currentStep, setCurrentStep] = useState<number>(0);
   const [isGameOver, setIsGameOver] = useState(false); // Estado para controlar si el juego ha terminado
   const [isExploding, setIsExploding] = useState(false);
 
   useEffect(() => {
     chess.load(problems[currentMove].fen); // Cargar el FEN del problema en Chess.js
     setFen(chess.fen()); // Actualizar el estado de FEN para reflejar la nueva posición
-    setCurrentSolutionIndex(0); // Reiniciar el índice de la solución
     setIsGameOver(false); // Reiniciar el estado de fin de juego
+    setCurrentStep(0); // Reiniciar el step actual
   }, [currentMove]);
 
-  // Manejar el evento de mover una pieza
-  const onDrop = (sourceSquare: string, targetSquare: string) => {
-    // Validar el movimiento usando la lógica de Chess.js
-    const move = chess.move({
-      from: sourceSquare,
-      to: targetSquare,
-      promotion: 'q', // Promover a Reina
-    });
-
-    if (move === null) {
-      return false; // Movimiento inválido
-    }
-    // Actualizar el estado de FEN (tablero)
-    setFen(chess.fen());
-
-    // Verificar si el movimiento corresponde al siguiente movimiento de la solución
-    const currentSolution = problems[currentMove].solution[currentSolutionIndex];
-    const moveStr = sourceSquare + targetSquare;
-
-    if (moveStr === currentSolution) {
-      // Si el movimiento es correcto, aumentar el índice de la solución
-      setCurrentSolutionIndex((prevIndex) => prevIndex + 1);
-    } else {
-      // Si el movimiento no es correcto, restablecer el juego
-      alert('Movimiento incorrecto, intenta de nuevo');
-      chess.undo();
-      setFen(chess.fen());
-      return false;
-    }
-
-    // Verificar si se completaron todos los movimientos correctamente
-    if (currentSolutionIndex + 1 === problems[currentMove].moves) {
-      setIsExploding(true);
-      // Si la respuesta es correcta, cambiar al siguiente problema
-      setTimeout(() => setIsExploding(false), 1000);
-      setTimeout(() => nextProblem(), 1500);
-      setIsGameOver(true); // Indicar que el juego ha terminado
-    }
-    
-    return true;
-  };
-
-  // Reiniciar el tablero con un nuevo problema
   const nextProblem = () => {
     // Cambiar al siguiente problema
     setCurrentMove((prevMove) => (prevMove + 1) % problems.length); // Cicla entre problemas
     chess.reset(); // Resetear el tablero
+    };
+    
+  // Manejar el evento de mover una pieza
+  const onDrop = (sourceSquare: string, targetSquare: string) => {
+    const move = chess.move({
+      from: sourceSquare,
+      to: targetSquare,
+      promotion: 'q'
+    });
+  
+    if (move === null) return false;
+  
+    const userMove = `${sourceSquare}${targetSquare}`;
+    const isMateInOne = problems[currentMove].solution.length === 1;
+  
+    // Manejo de mate en un solo movimiento
+    if (isMateInOne && userMove === problems[currentMove].solution[0]) {
+      setFen(chess.fen());
+      setIsExploding(true);
+      setTimeout(() => {
+        setIsExploding(false);
+        nextProblem();
+      }, 1500);
+      return true;
+    }
+    
+    if (userMove === problems[currentMove].solution[currentStep]) {
+      setFen(chess.fen());
+      
+      if (currentStep === problems[currentMove].solution.length - 1) {
+        // último movimiento de la solución, problema resuelto
+        setIsExploding(true);
+        setTimeout(() => {
+          setIsExploding(false);
+          nextProblem();
+        }, 1500);
+      } else {
+        // Respuesta de la computadora
+        setTimeout(() => {
+          chess.move(problems[currentMove].solution[currentStep + 1]);
+          setFen(chess.fen());
+          setCurrentStep(currentStep + 2); // Prepara el siguiente movimiento del usuario
+        }, 500);
+      }
+      return true;
+    }
+  
+    chess.undo();
+    setFen(chess.fen());
+    alert('Movimiento incorrecto, intenta de nuevo');
+    return false;
   };
 
   return (
     <div className="mate-practice">
       <h1>Ejercicios de Jaque Mate</h1>
       <h6>Mejora tu cálculo y visión resolviendo problemas</h6>
+      {problems[currentMove].description ? <h3>{problems[currentMove].description}</h3> : null}
       <div id='chessboard-container'>
         <ChessboardInterface 
           fen={fen} 
@@ -96,6 +105,6 @@ const MatePractice = () => {
         </button>
       </div>
   );
-};
+}
 
 export default MatePractice;
