@@ -1,5 +1,11 @@
 export const problems = [
     {
+      fen: 'r1b1k2r/pp3bpp/2p2Q2/8/2B5/1PN3P1/P4P1P/3R1RK1 w - - 1 21',
+      solution: ['f6f7', 'd1d8'],
+      side: 'w',
+      description: 'Mate en 1 jugada',
+    },
+    {
       fen: '2r5/pR5p/5p1k/4p3/4R3/B4nPP/PP3P2/1K6 b - - 0 27',
       solution: ['f3d2','b1a1', 'c8c1'],
       side: 'b',
@@ -32,12 +38,6 @@ export const problems = [
     {
       fen: 'r1bqk2r/pp1nb1p1/2p1Q2p/8/2BP4/1PN3P1/P4P1P/3R1RK1 w - - 1 21',
       solution: ['e6f7'], 
-      side: 'w',
-      description: 'Mate en 1 jugada',
-    },
-    {
-      fen: 'r1b1k2r/pp3bpp/2p2Q2/8/2B5/1PN3P1/P4P1P/3R1RK1 w - - 1 21',
-      solution: ['f6f7'],
       side: 'w',
       description: 'Mate en 1 jugada',
     },
