@@ -1,7 +1,7 @@
 export const problems = [
     {
-      fen: 'r1b1k2r/pp3bpp/2p2Q2/8/2B5/1PN3P1/P4P1P/3R1RK1 w - - 1 21',
-      solution: ['f6f7', 'd1d8'],
+      fen: 'r1b1k2r/pp3pp1/2p4b/4p3/2B3n1/NPN2QPq/P4P1P/3R1RK1 w - - 1 21',
+      solution: ['f3f7'],
       side: 'w',
       description: 'Mate en 1 jugada',
     },
