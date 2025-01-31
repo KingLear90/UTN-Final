@@ -1,3 +1,14 @@
+export const validProfiles = ['admin', 'employee', 'user'] as const
+
+export type Profile = typeof validProfiles[number]
+
+export interface User {
+  _id: string;
+  name: string;
+  email: string;
+  profile: Profile;  // Única y estrictamente 'admin', 'employee', o 'user'
+}
+
 export interface AppProps {
     children: React.ReactNode;
 }
