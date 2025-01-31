@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react'
 import { getAuthHeaders } from '../../utils/getAuthHeaders'
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { User } from '../../types/interfaces';
 
 function GetUsers() {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<User[]>([]);
 
   try {
     useEffect(() => {
@@ -48,7 +49,7 @@ function GetUsers() {
         <h4>Esta es la lista de usuarios actuales:</h4>
       </section>
       <div className="users-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginTop: '30px' }}>
-        {users.map((user: any) => (
+        {users.map((user: User) => (
           <div key={user._id} className="user-card">
             <h5>{user.name}</h5>
             <p>{user.email}</p>
