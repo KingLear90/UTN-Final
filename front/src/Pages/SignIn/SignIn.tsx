@@ -71,7 +71,7 @@ function SignIn() {
             <button className="btn btn-primary py-2" onClick={toSignUp}>REGISTRARSE (GRATIS)</button>
         </div>
         </form>
-        
+
     </App>
   )
 }
