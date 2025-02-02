@@ -153,7 +153,7 @@ Si se accede desde el front a la sección <b>Iniciar Sesión</b>, y se ingresa p
 
 ![image](https://github.com/user-attachments/assets/2ccc139f-213a-41e4-8db1-44bd2315d9b9)
 
-<span>El botón de eliminar funciona sobre cualquier tipo de perfil, excepto sobre quienes sean "admin".</span><br>
+<span>El botón de <b><i>eliminar</i></b> funciona sobre cualquier tipo de perfil, excepto sobre quienes sean "admin".</span><br>
 
 <span>Intentar acceder a <i>http://localhost:5173/users</i>, sin haber previamente iniciado sesión como "admin", redirige automáticamente al login para iniciar sesión.</span><br>
 
