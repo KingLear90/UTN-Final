@@ -1,12 +1,14 @@
+import React, { Suspense } from 'react';
 import App from '../../App'
-import MatePractice from '../../components/Training/MatePractice'
-
+const MatePractice = React.lazy(() => import('../../components/Training/MatePractice'));
 function Practice() {
 
   return (
     <App>
         <div>
-        <MatePractice />
+          <Suspense fallback={<div>Cargando...</div>}>
+            <MatePractice />
+          </Suspense>
         </div>
     </App>
   )
