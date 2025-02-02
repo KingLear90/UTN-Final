@@ -24,7 +24,11 @@ function GetUsers() {
     console.log(error)
   }
 
-  const removeUser = async (id: string) => {
+  const removeUser = async (id: string, userProfile: string) => {
+    if (userProfile === 'admin') {
+      alert('No puedes borrar a un administrador')
+      return
+    }
     if (confirm('¿Eliminar usuario?')) {
     try {
       const response = await fetch(`http://localhost:3001/api/user/delete/${id}`, {
@@ -32,7 +36,7 @@ function GetUsers() {
         headers: getAuthHeaders()
       })
       if (response.ok) {
-        setUsers(users.filter((user: any) => user._id !== id))
+        setUsers(users.filter((user: User) => user._id !== id))
       }
     } catch (error) {
       console.error('Error deleting user:', error)
@@ -54,8 +58,8 @@ function GetUsers() {
             <h5>{user.name}</h5>
             <p>{user.email}</p>
             <p>{user.profile}</p>
-            <IconButton aria-label="delete" onClick={() => removeUser(user._id)}>
-              <DeleteIcon />  
+            <IconButton aria-label="delete" onClick={() => removeUser(user._id, user.profile)}>
+                <DeleteIcon />  
             </IconButton>
           </div>
         ))}
