@@ -19,7 +19,8 @@ function Card({ cardData } : CardProps) {
 
   const handleCardClick = () => {
     setIsClicked(true);
-    setTimeout(() => {setIsClicked(false)}, 2000);
+    alert('Sección disponible en breve...');
+    setIsClicked(false);
   };
 
   return (
@@ -36,9 +37,8 @@ function Card({ cardData } : CardProps) {
           <button className='learn-btn' onClick={handleCardClick}>
             CONOCER MÁS
           </button>
-          {isClicked && <h4 className='unavailable'>Sección disponible en breve...</h4>} 
         </div>  
     </div>
   );
-}
-export default Cards;
+
+}export default Cards;
