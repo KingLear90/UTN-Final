@@ -105,12 +105,12 @@ function Products() {
             <p className="description">{product.description}</p>
             <p className="category">Categoría: {product.category_id.categoryName || 'Sin categoría definida'}</p>
             <div className="button-group">
-            <IconButton aria-label="delete" onClick={() => removeProduct(product._id)}>
-              <DeleteIcon />
-            </IconButton>
             <IconButton onClick={() => handleEdit(product)}>
                <Edit />
              </IconButton>
+            <IconButton aria-label="delete" onClick={() => removeProduct(product._id)}>
+              <DeleteIcon />
+            </IconButton>
              </div>
             <Modal open={editMode} onClose={() => setEditMode(false)}>
               <Box sx={modalStyle}>
