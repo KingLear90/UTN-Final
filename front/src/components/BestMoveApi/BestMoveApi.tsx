@@ -117,7 +117,7 @@ function BestMoveApi() {
             <label className='code'>Código FEN: </label>
             <input type="text" className='fen' name='fen' value={fen} onChange={handleFenChange} placeholder="Ingresa el código FEN" />
             <div className="board-controls-container mt-4">
-            <div id="chessboard-container" className='mt-2'>
+            <div id="chessboard-container">
               <ChessboardInterface 
                 fen={fen}
                 onDrop={onDrop}
