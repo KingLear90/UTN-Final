@@ -38,13 +38,13 @@ function SignUp() {
     <App>
         <form className="formLayout" onSubmit={handleSubmit(onSubmit)}>
         <h4 className="formTitle">¡REGISTRATE GRATIS!</h4>
-        <span className='alertForm'>Los campos con señalados con * son obligatorios</span>
+        <span className='alertForm'>Todos los campos son obligatorios</span>
 
-            <input type="text" {...register('name', { required: true } )} className = 'registerInput' placeholder='Nombre *'/>
+            <input type="text" {...register('name', { required: true } )} className = 'registerInput' placeholder='Nombre'/>
             {errors.name && <span className="error">Este campo es requerido</span>}
-            <input type="email" {...register('email')}  className = 'registerInput' placeholder='Email'/>
+            <input type="email" {...register('email', {required: true})}  className = 'registerInput' placeholder='Email'/>
             {errors.email && <span className="error">Email válido requerido</span>}
-            <input type="password" {...register('password', { required: true } )} className = 'registerInput' placeholder='Contraseña *'/> 
+            <input type="password" {...register('password', { required: true } )} className = 'registerInput' placeholder='Contraseña'/> 
             {errors.password && <span className="error">La contraseña deben contener al menos 6 caractéres, incluyendo al menos una mayúscula y un número. </span>}
 
             <div className="formButtonContainer">
