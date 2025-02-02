@@ -98,21 +98,6 @@ Categories: <br>
 <br>
 
 <h3>Ejemplo de solicitudes:</h3>
-- <b>INICIAR SESIÓN</b> (<b>POST http://localhost:3001/api/user/login</b>)<br>
-<br>
-{
-	"email": "test1@gmail.com",
- 	"password": "Test01"
-}<br>
-{
-	"email": "test2@gmail.com",
- 	"password": "Test02"
-}<br>
-{
-	"email": "test3@gmail.com",
- 	"password": "Test03"
-}<br>
-<br>
 - <b>CREAR USUARIO</b> (<b>POST http://localhost:3001/api/user/create</b>)<br>
 {<br>
     "name": "Melissa",<br>
@@ -134,9 +119,26 @@ Categories: <br>
     "email": "test3@gmail.com",<br>				
     "password": "Test03"<br>						 
 }	<br>
+<br>
+- <b>INICIAR SESIÓN</b> (<b>POST http://localhost:3001/api/user/login</b>)<br>
+<br>
+{
+	"email": "test1@gmail.com",
+ 	"password": "Test01"
+}<br>
+{
+	"email": "test2@gmail.com",
+ 	"password": "Test02"
+}<br>
+{
+	"email": "test3@gmail.com",
+ 	"password": "Test03"
+}<br>
+<br>
+
+![image](https://github.com/user-attachments/assets/2ccc139f-213a-41e4-8db1-44bd2315d9b9)
 
 <h5>Otras acciones con usuarios</h5>
-<i>POST http://localhost:3001/api/user/create</i> <br>
 <i>GET http://localhost:3001/api/user/get</i> <br>
 <i>POST http://localhost:3001/api/user/get-by-id/:id</i> <br>
 <i>PUT http://localhost:3001/api/user/update:id</i> <br>
