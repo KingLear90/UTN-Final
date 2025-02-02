@@ -8,7 +8,7 @@ import Gallery from './Pages/Gallery/Gallery';
 import Contact from './Pages/Contact/Contact';
 import NotFound from './Pages/NotFound/NotFound';
 import SignUp from './Pages/SignUp/SignUp';
-import SignIn from './Pages/SignIn/SignIn';
+import SignIn from './Pages/Login/Login';
 import Products from './Pages/Products/Products';
 import Practice from './Pages/Practice/Practice';
 import { GetUsers, ProtectedRoute } from './components';
