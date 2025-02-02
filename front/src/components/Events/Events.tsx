@@ -1,4 +1,3 @@
-import './Events.css';
 import { EventProps } from '../../types/interfaces';
 
 export default function Events ({ event }: EventProps) { 
