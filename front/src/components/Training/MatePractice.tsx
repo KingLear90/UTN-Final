@@ -1,3 +1,4 @@
+import './MatePractice.css';
 import { useState, useEffect } from 'react';
 import { Chess } from 'chess.js';
 import ChessboardInterface from '../ChessboardInterface/ChessboardInterface';
@@ -100,8 +101,8 @@ const MatePractice = () => {
           marginLeft: 'auto',
           marginRight: 'auto',
         }}  />}
-        <button onClick={nextProblem}>
-          {isGameOver ? '¡Siguiente Problema!' : '¡Siguiente Problema!'}
+        <button onClick={nextProblem} className="next-button">
+          {isGameOver ? 'Siguiente problema' : 'Siguiente problema'}
         </button>
       </div>
   );
