@@ -78,7 +78,6 @@ export const deleteUser = async (req, res) => {
 
 // UPDATE USER
 export const updateUser = async (req, res) => {
-
   try {
     const _id = req.params.id;
     const { password } = req.body;
@@ -88,16 +87,19 @@ export const updateUser = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    if (!isGoodPassword(password)) {
+    if (password) {
+      if (!isGoodPassword(password)) {
       return res.status(400).json({ message: "Password is not valid" });
+      }
+      //Hashea la contraseña modificada
+      const hashedPassword = await bcryptjs.hash(password, 10);
+      req.body.password = hashedPassword;
     }
-    //Hashea la contraseña modificada
-    const hashedPassword = await bcryptjs.hash(password, 10);
-    req.body.password = hashedPassword;
 
     const updatedUser = await user.findByIdAndUpdate( {_id}, req.body, { new: true }); // Para que "findByIdAndUpdate" devuelva el documento actualizado, en lugar del documento original.
     console.log('User updated successfully', updatedUser);
     return res.status(201).json({message: 'User updated successfully', data: {updatedUser}});
+
   } catch (error) {
     res.status(500).json({ message: "Internal server error", error: error.message });
   }
@@ -138,6 +140,8 @@ export const validateUser = async (req, res) => {
         userEmail: userFound.email
       }
       const token = jwt.sign(payload, SECRET, { expiresIn: "30m" }); // Token firmado para que sea único y seguro.
+      req.session.token = token; // Se guarda en la sesión del servidor
+      console.log('Generated token:', token);
       const profile = userFound.profile;
 
       return res.status(200).json({message: "Logged in", token, profile: profile }); // La respuesta se envía al cliente (al front).
