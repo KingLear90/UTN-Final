@@ -12,9 +12,8 @@
     align-items: center;
     background: #dbcdd3;
     border: 2px solid #ddd;
-    width: 25rem;
-    height: 26rem;
-    box-sizing: content-box;
+    width: 21em;
+    min-height: fit-content;
     border-radius: 8px;
     padding: 15px;
     margin: 15px 0;
@@ -23,17 +22,24 @@
 
 .button-group {
     position: absolute;
-    top: 13rem;
-    right: 10px;
     display: flex;
-    gap: 8px;
-}
+    flex-direction: column;
+    top: 12em;  
+    right: 1em;
+    display: flex;
+    row-gap: 8px;
 
+}
+.product-card .MuiIconButton-root {
+    color: #079c34;
+    transition: transform 0.3s ease-in-out;
+}
 
 .product-card .MuiIconButton-root:hover {
   color: red;
   background-color: rgba(255, 255, 255, 1);
   transform: scale(1.1);
+ 
 }
 
 .product-card img {
@@ -60,9 +66,12 @@
     font-style: italic;
 }
 
-
-
 @media screen and (max-width: 768px) {
+    .button-group {
+        top: 10em;
+        right: 5px;
+        gap: 4px;
+    }
     .product-card {
         width: 20rem;
         height: 22rem;
@@ -75,6 +84,9 @@
 }
 
 @media screen and (max-width: 480px) {
+    .button-group {
+        transform: scale(0.9);
+    }
     .product-card {
         width: 15rem;
         height: 20rem;

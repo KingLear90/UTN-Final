@@ -80,8 +80,9 @@
     border: 2px solid #3299cc;
     padding: 0.5em;
 }
+
 .info-btn {
-    border-radius: 8px;
+    border-radius: 5px;
     border: none;
     color: #f9f9f9;
     background: #3299cc;
@@ -91,6 +92,7 @@
 }
 
 .info-btn:hover {
-    transform: scale(1.1);
-    color: #f9f9f9;
+    background: #2c6f91;
+    border-radius: 7px;
+    transition: 0.3s;
 }
