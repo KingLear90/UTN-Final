@@ -150,10 +150,11 @@ Categories: <br>
 
 <h4>EJEMPLO CON EL FRONT</h4>
 Si se accede desde el front a la sección <b>Iniciar Sesión</b>, y se ingresa por ejemplo con "email": "test1@gmail.com" y "password": "Test01", se verá durante unos segundos un mensaje de Bienvenida al administrador/a, tras lo cual se es redirigido a /users (ruta protegida a la que solo se accede si se loguea un usuario con perfil "admin").<br>
+
 ![image](https://github.com/user-attachments/assets/2ccc139f-213a-41e4-8db1-44bd2315d9b9)
 
-
 <span>Intentar acceder a <i>http://localhost:5173/users</i>, sin haber previamente iniciado sesión como "admin", redirige automáticamente al login para iniciar sesión.</span><br>
+
 <h5>Otras acciones con usuarios</h5>
 <i>GET http://localhost:3001/api/user/get</i> <br>
 <i>POST http://localhost:3001/api/user/get-by-id/:id</i> <br>
