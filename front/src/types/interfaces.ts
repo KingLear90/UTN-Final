@@ -42,7 +42,7 @@ export interface EventProps {
 
 export interface CardProps {
     cardData: {
-      id: number;
+      id: string;
       title: string;
       src: string;
       alt: string;
